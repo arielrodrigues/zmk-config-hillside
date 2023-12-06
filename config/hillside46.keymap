@@ -43,8 +43,8 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+                <&inc_dec_kp 0 0>,
+                <&inc_dec_kp RS(C_VOLUME_UP) C_VOL_DN>;
         };
 
         nav_layer {
