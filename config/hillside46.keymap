@@ -42,7 +42,9 @@
                                 &kp LGUI  &kp LALT  &kp SPACE   &mo 1  &mo 2  &kp LEFT_SHIFT  &kp LALT  &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+            sensor-bindings =
+                <&inc_dec_kp 0 0>,
+                <&inc_dec_kp K_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         nav_layer {
