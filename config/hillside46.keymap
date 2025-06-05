@@ -75,7 +75,7 @@
 
             bindings = <
 &kp INS       &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT                                   &kp CARET       &kp AMPS          &kp ASTRK     &kp LPAR    &kp RPAR              &kp DEL
-&kp CAPSLOCK  &kp BSLH  &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT                                      &kp LEFT        &kp DOWN          &kp UP_ARROW  &kp RIGHT   &kp C_BRIGHTNESS_INC  &kp C_BRIGHTNESS_DEC
+&kp CAPSLOCK  &kp BSLH  &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT                                      &kp LEFT        &kp DOWN          &kp UP_ARROW  &kp RIGHT   &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC
 &trans        &kp PIPE  &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC     &sk RALT                 &none   &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT    &kp K_MUTE  &kp C_VOL_DN          &kp C_VOLUME_UP
                                               &trans      &trans       &trans    &mo 3  &trans  &trans  &trans          &trans
             >;
