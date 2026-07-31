@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -e
+
+source ~/zmk-venv/bin/activate
+export ZEPHYR_SDK_INSTALL_DIR=~/zephyr-sdk-0.17.0
+export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
+export CMAKE_PREFIX_PATH=/Users/arielrodrigues/code/zmk-config-hillside/zephyr/share/zephyr-package/cmake
+
+REPO="$(cd "$(dirname "$0")" && pwd)"
+
+# NOTE: config/west.yml pins ZMK to an older commit (2025-06-16), so the board
+# is the legacy "nice_nano_v2" name (not the HWMv2 "nice_nano//zmk" syntax).
+
+echo "==> Building left half..."
+west build -s zmk/app -b nice_nano_v2 -d "$REPO/build/hillside46_left" --pristine \
+  -- -DSHIELD=hillside46_left -DZMK_CONFIG="$REPO/config"
+
+echo "==> Building right half..."
+west build -s zmk/app -b nice_nano_v2 -d "$REPO/build/hillside46_right" --pristine \
+  -- -DSHIELD=hillside46_right -DZMK_CONFIG="$REPO/config"
+
+echo "==> Building settings reset..."
+west build -s zmk/app -b nice_nano_v2 -d "$REPO/build/settings_reset" --pristine \
+  -- -DSHIELD=settings_reset -DZMK_CONFIG="$REPO/config"
+
+echo ""
+echo "Done. UF2 files:"
+echo "  Left:    $REPO/build/hillside46_left/zephyr/zmk.uf2"
+echo "  Right:   $REPO/build/hillside46_right/zephyr/zmk.uf2"
+echo "  Reset:   $REPO/build/settings_reset/zephyr/zmk.uf2"
