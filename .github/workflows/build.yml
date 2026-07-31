@@ -2,4 +2,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Pinned to the same ZMK commit as config/west.yml. Tracking @main pulled a
+    # newer workflow that runs `west boards --format {qualifiers}`, incompatible
+    # with the pinned (older) Zephyr -> KeyError: 'qualifiers'.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@6b44d33db2f4bad7d98e475e6f7968493b05af73
